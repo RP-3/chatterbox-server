@@ -60,7 +60,7 @@ app = {
 
     loadMsgs: function(){
       $.ajax({
-        url: app.server,
+        url: app.server+"messages",
         type: 'GET',
         // data: { order: '-createdAt'},
         contentType: 'application/json',
@@ -77,7 +77,7 @@ app = {
     sendMsg: function(message){
       $.ajax({
         type: 'POST',
-        url: app.server,
+        url: app.server+"messages",
         data: JSON.stringify(message),
         contentType: 'application/json',
         success: function(json){
