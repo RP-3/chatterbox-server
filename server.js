@@ -5,8 +5,8 @@ var http = require("http");
 var port = process.env.PORT || 3000;
 var ip = process.env.IP || "127.0.0.1";
 
-var root = '../client/client/index.html';
-var base = '../client/client';
+var root = './public/client/index.html';
+var base = './public/client';
 
 var returnIndex = function(request, response, path){
 
@@ -15,6 +15,7 @@ var returnIndex = function(request, response, path){
 
 	fs.readFile(path, function(err, data){
 		if (err){ 
+			console.log("error: ", err, "path: ", path);
 			response.writeHeader(404);
 			response.end("file not found");
 		}else{
