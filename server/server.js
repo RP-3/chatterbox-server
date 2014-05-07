@@ -3,7 +3,7 @@ var parseUrl = require('url');
 var fs = require('fs');
 var http = require("http");
 var port = process.env.PORT || 3000;
-//var ip = process.env.IP || "127.0.0.1";
+var ip = process.env.IP || "127.0.0.1";
 
 var root = '../client/client/index.html';
 var base = '../client/client';
@@ -35,7 +35,7 @@ var server = http.createServer(function(request, response){
 	}
 });
 
-server.listen(port);
+server.listen(port, ip);
 
 /* To start this server, run:
      node basic-server.js
