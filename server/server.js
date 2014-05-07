@@ -3,7 +3,7 @@ var parseUrl = require('url');
 var fs = require('fs');
 var http = require("http");
 var port = process.env.PORT || 3000;
-var ip = "127.0.0.1";
+var ip = process.env.IP || "127.0.0.1";
 
 var root = '../client/client/index.html';
 var base = '../client/client';
@@ -12,10 +12,6 @@ var returnIndex = function(request, response, path){
 
 	if(path === "/"){ path = root; }else
 	{ path = base + path; }
-
-	console.log("returning", path);
-
-	var returnfile;
 
 	fs.readFile(path, function(err, data){
 		if (err){ 
@@ -27,7 +23,6 @@ var returnIndex = function(request, response, path){
 		    response.end();
 		}
 	});
-
 }
 
 var server = http.createServer(function(request, response){
@@ -39,7 +34,6 @@ var server = http.createServer(function(request, response){
 		returnIndex(request, response, path.pathname);
 	}
 });
-
 
 server.listen(port, ip);
 
