@@ -5,8 +5,8 @@ var http = require("http");
 var port = process.env.PORT || 3000;
 var ip = process.env.IP || "127.0.0.1";
 
-var root = '/client/client/index.html';
-var base = '/client/client';
+var root = 'client/client/index.html';
+var base = 'client/client';
 
 var returnIndex = function(request, response, path){
 
